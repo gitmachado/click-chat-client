@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "319578592438",
+    "project_id": "clickchat-2beb8",
+    "storage_bucket": "clickchat-2beb8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:319578592438:android:7208211619dfc837410217",
+        "android_client_info": {
+          "package_name": "com.clickchat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "319578592438-5o3q9i98j1m0h190387gt1carrvjk2rl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.clickchat",
+            "certificate_hash": "219358db833f0aba396e2232841bb7b6c4f3cf51"
+          }
+        },
+        {
+          "client_id": "319578592438-5h3abhrfda2vk5d8r82f7e6j0v3ldrgn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhyRlAAO2YGhF3eBBhUStc6tk_ZGXdGBc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "319578592438-5h3abhrfda2vk5d8r82f7e6j0v3ldrgn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
