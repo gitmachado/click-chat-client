@@ -248,8 +248,23 @@ function Home() {
             {profileImageModalVisibility && (
                 <View style={styles.statusbar2}></View>
             )}
-            <View style={[styles.header, { backgroundColor: appConfig.darkTheme ? '#202c33' : '#ff9900' }]}>
 
+            <View style={{ marginTop: 55, backgroundColor: appConfig.darkTheme ? '#202c33' : 'black', width: '100%', height: 35, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: 50 }}>
+                <View style={{ width: 110, borderWidth: 0, justifyContent: 'center', alignItems: 'center' }} onTouchEnd={() => scrollToIndex(0)}>
+                    <Text style={{ fontSize: 16, color: 'white', fontWeight: 'bold', padding: 5 }}> Conversas </Text>
+                </View>
+                <View style={{ width: 110, borderWidth: 0, justifyContent: 'center', alignItems: 'center' }} onTouchEnd={() => scrollToIndex(1)}>
+                    <Text style={{ fontSize: 16, color: 'white', fontWeight: 'bold', padding: 5 }}> Contatos </Text>
+                </View>
+            </View>
+            <View style={[{ backgroundColor: appConfig.darkTheme ? '#202c33' : 'black', height: 3, width: '100%' }]}>
+                <Animated.View style={[{ height: '100%', width: 110, backgroundColor: appConfig.darkTheme ? '#ff9900' : '#ff9900', borderRadius: 250 }, { transform: [{ translateX: navigationPosition }] }]}>
+                    <View style={{ backgroundColor: 'rgba(255, 255, 255, 0.3)', borderBottomLeftRadius: 3, borderBottomRightRadius: 3, width: '100%', height: '50%', position: 'absolute', top: 0 }}></View>
+                </Animated.View>
+            </View>
+
+            <View style={[styles.header, { backgroundColor: appConfig.darkTheme ? '#202c33' : '#ff9900' }]}>
+                <View style={{ backgroundColor: appConfig.darkTheme ? 'rgba(255, 255, 255, 0.05)' : 'rgba(255, 255, 255, 0.15)',  borderBottomLeftRadius: 10, borderBottomRightRadius: 10, width: '100%', height: '78%', position: 'absolute', top: 0 }}></View>
                 {searchUserModalVisibility &&
                     <Modal animationType="none" transparent={true} visible={searchUserModalVisibility} onRequestClose={() => setSearchUserModalVisibility(false)}>
                         <View style={styles.modalContainer}>
@@ -332,19 +347,7 @@ function Home() {
                 <View style={{ width: '100%', height: '100%' }}>
                     <AudioStream />
                 </View>
-            </View>*/}
-
-            <View style={{ marginTop: 0, backgroundColor: appConfig.darkTheme ? '#202c33' : 'black', width: '100%', height: 40, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: 50 }}>
-                <View style={{ width: 110, borderWidth: 0, justifyContent: 'center', alignItems: 'center' }} onTouchEnd={() => scrollToIndex(0)}>
-                    <Text style={{ fontSize: 16, color: 'white', fontWeight: 'bold', padding: 5 }}> Conversas </Text>
-                </View>
-                <View style={{ width: 110, borderWidth: 0, justifyContent: 'center', alignItems: 'center' }} onTouchEnd={() => scrollToIndex(1)}>
-                    <Text style={{ fontSize: 16, color: 'white', fontWeight: 'bold', padding: 5 }}> Contatos </Text>
-                </View>
-            </View>
-            <View style={[{ backgroundColor: appConfig.darkTheme ? '#202c33' : 'black', height: 3, width: '100%' }]}>
-                <Animated.View style={[{ height: '100%', width: 110, backgroundColor: appConfig.darkTheme ? '#ff9900' : '#ff9900' }, { transform: [{ translateX: navigationPosition }] }]}></Animated.View>
-            </View>
+            </View>*/} 
 
             <SwiperFlatList style={styles.wrapper} ref={swiperRef} onScroll={handleScrollSwiper} showsPagination={false} loop={false} showsButtons={false} onIndexChanged={handleIndexChanged}>
 
@@ -435,7 +438,8 @@ function Home() {
 
                                             <View style={{ alignItems: 'center', marginRight: 10 }}>
                                                 {conversation.naolidas > 0 && (
-                                                    <View style={{ backgroundColor: '#ff9900', borderRadius: 250, width: 20, height: 20, marginTop: 5, justifyContent: "center", alignItems: "center" }}>
+                                                    <View style={{ backgroundColor: '#ff9900', borderRadius: 250, width: 20, height: 20, marginTop: 5, justifyContent: "center", alignItems: "center", overflow: 'hidden' }}>
+                                                        <View style={{ backgroundColor: appConfig.darkTheme ? 'rgba(255, 255, 255, 0.25)' : 'rgba(255, 255, 255, 0.15)', borderBottomLeftRadius: 4, borderBottomRightRadius: 4, width: '100%', height: '50%', position: 'absolute', top: 0 }}></View>
                                                         <Text style={{ fontWeight: "bold", color: "white", fontSize: 12 }}> {conversation.naolidas} </Text>
                                                     </View>
                                                 )}
@@ -450,7 +454,8 @@ function Home() {
                         </ScrollView>
                     )}
 
-                    <TouchableOpacity activeOpacity={0.6} style={[styles.button, { backgroundColor: appConfig.darkTheme ? '#ff9900' : '#ff9900' }]} onPress={() => { if (user !== null) { handleNewConversation() } }}>
+                    <TouchableOpacity activeOpacity={0.6} style={[styles.button, { backgroundColor: appConfig.darkTheme ? '#ff9900' : '#ff9900', overflow: 'hidden' }]} onPress={() => { if (user !== null) { handleNewConversation() } }}>
+                        <View style={{ backgroundColor: appConfig.darkTheme ? 'rgba(255, 255, 255, 0.25)' : 'rgba(255, 255, 255, 0.15)', borderBottomLeftRadius: 5, borderBottomRightRadius: 5, width: '100%', height: '50%', position: 'absolute', top: 0 }}></View>
                         <Image source={require('../../attachments/icone.png')} style={styles.icon} />
                     </TouchableOpacity>
 
@@ -518,12 +523,11 @@ function Home() {
 
             </SwiperFlatList>
 
-
             <View style={{ width: "100%", backgroundColor: appConfig.darkTheme ? '#111b21' : 'white' }}>
                 <BannerAd
                     size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
-                    //unitId="ca-app-pub-3940256099942544/9214589741" // Código de teste
-                    unitId="ca-app-pub-8509836268613777/9692542598"
+                    unitId="ca-app-pub-3940256099942544/9214589741" // Código de teste
+                    //unitId="ca-app-pub-8509836268613777/9692542598"
                     onAdLoaded={() => {
                         setIsAdLoaded(true);
                     }}
@@ -559,8 +563,9 @@ function Home() {
                             </View>
                             <View style={{ width: '100%', paddingVertical: 10 }}>
                                 <Text style={{ color: appConfig.darkTheme ? '#c1c1c1' : '#808080' }}>Por favor, tente novamente mais tarde.</Text>
-                                <TouchableOpacity activeOpacity={0.7} onPress={() => { setNullNewConversationModalVisibility(false); setScreen("notHome"); navigation.navigate('Editar Perfil'); }} style={{ justifyContent: 'center', alignItems: 'center', flexDirection: 'row', marginTop: 10, backgroundColor: '#ff9900', padding: 8, borderRadius: 5 }}>
+                                <TouchableOpacity activeOpacity={0.7} onPress={() => { setNullNewConversationModalVisibility(false); setScreen("notHome"); navigation.navigate('Editar Perfil'); }} style={{ justifyContent: 'center', alignItems: 'center', flexDirection: 'row', marginTop: 10, backgroundColor: '#ff9900', borderRadius: 5, height: 40, overflow: 'hidden' }}>
                                     <Image source={require('../../attachments/gear.png')} style={{ width: 20, height: 20 }} />
+                                    <View style={{ backgroundColor: appConfig.darkTheme ? 'rgba(255, 255, 255, 0.25)' : 'rgba(255, 255, 255, 0.15)', borderBottomLeftRadius: 6, borderBottomRightRadius: 6, width: '100%', height: '50%', position: 'absolute', top: 0 }}></View>
                                     <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 15, }}>Alterar configurações de busca</Text>
                                 </TouchableOpacity>
                             </View>
@@ -600,13 +605,13 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'flex-start',
-        paddingHorizontal: 5,
         paddingVertical: 10,
         width: '100%',
-        height: "8%",
+        height: 55,
         backgroundColor: '#ff9900',
         elevation: 5,
-        //borderTopWidth: 0.3,
+        position: 'absolute',
+        top: 24
 
     },
     mainContainer: {

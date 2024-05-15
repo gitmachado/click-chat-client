@@ -220,7 +220,8 @@ const Chat = () => {
                                 </View>
                                 {/* Botão de envio */}
                                 <TouchableOpacity activeOpacity={0.5} style={{ width: '15%', height: '100%', justifyContent: 'center', alignItems: 'center' }} onPress={() => { setIsEnabledEmojiTable(false); setTyping(false); handleSend(imageViewerPhoto = null, input, setInput, currentConversation, conversationMessages, setConversationMessages, scrollViewRef, socket, setConversasDoAsync, conversasDoAsync, setCurrentConversation) }}>
-                                    <View style={[styles.sendButton, { borderRadius: 10, width: '100%', justifyContent: 'center', alignItems: 'center', height: '100%' }]}>
+                                    <View style={[styles.sendButton, { overflow: 'hidden', borderRadius: 10, width: '100%', justifyContent: 'center', alignItems: 'center', height: '100%' }]}>
+                                        <View style={{ backgroundColor: appConfig.darkTheme ? 'rgba(255, 255, 255, 0.25)' : 'rgba(255, 255, 255, 0.20)', borderBottomLeftRadius: 4, borderBottomRightRadius: 4, width: '100%', height: '45%', position: 'absolute', top: 0 }}></View>
                                         <Image source={require('../../attachments/sendIcon.png')} style={{ width: 25, height: 25 }} />
                                     </View>
                                 </TouchableOpacity>

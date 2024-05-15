@@ -31,7 +31,8 @@ const EditNameModal = ({ dependencies }) => {
                         maxLength={15}
                     />
 
-                    <TouchableOpacity style={styles.button} onPress={() => { dependencies.setName(dependencies.name); dependencies.setEditNameModalVisible(false); }} >
+                    <TouchableOpacity activeOpacity={0.7} style={styles.button} onPress={() => { dependencies.setName(dependencies.name); dependencies.setEditNameModalVisible(false); }} >
+                        <View style={{ backgroundColor: 'rgba(255, 255, 255, 0.25)', borderBottomLeftRadius: 6, borderBottomRightRadius: 6, width: '100%', height: '50%', position: 'absolute', top: 0 }}></View>
                         <Text style={{ color: "white", fontWeight: "bold", fontSize: 15 }}> PRONTO </Text>
                     </TouchableOpacity>
                 </View>
@@ -44,10 +45,10 @@ const styles = StyleSheet.create({
 
     button: {
         backgroundColor: '#ff9900',
-        padding: 15,
         justifyContent: "center",
         alignItems: "center",
         borderRadius: 5,
+        height: 40,
     },
     input: {
         height: 40,

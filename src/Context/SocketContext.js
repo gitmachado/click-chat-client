@@ -14,8 +14,8 @@ import Contatos from '../pages/Contatos/Contatos';
 
 const SocketContext = createContext();
 
-//const adUnitId = "ca-app-pub-3940256099942544/1033173712"; // Código de teste 
-const adUnitId = "ca-app-pub-8509836268613777/5577041911";
+const adUnitId = "ca-app-pub-3940256099942544/1033173712"; // Código de teste 
+//const adUnitId = "ca-app-pub-8509836268613777/5577041911";
 
 const interstitial = InterstitialAd.createForAdRequest(adUnitId, {
     keywords: ['fashion', 'clothing'],

@@ -99,18 +99,18 @@ const connection_listeners = () => {
             //console.log("acione")
             // Verifica se já existe uma instância de socket
             //console.log("não está configurado")
-            const socketInstance = io.connect("https://clickchat.site:443", {
-                query: {
-                    clientVersion: clientVersion,
-                    userInfo: user,
-                }
-            });
-            /*const socketInstance = io.connect("http://192.168.1.3:3000", {
+            /*const socketInstance = io.connect("https://clickchat.site:443", {
                 query: {
                     clientVersion: clientVersion,
                     userInfo: user,
                 }
             });*/
+            const socketInstance = io.connect("http://192.168.1.9:3000", {
+                query: {
+                    clientVersion: clientVersion,
+                    userInfo: user,
+                }
+            });
             socketInstance.emit("sendingClientVersionToServer", clientVersion);
             socketInstance.on("updateClientInfo", (clientInfo) => {
                 setUserProfile(clientInfo);

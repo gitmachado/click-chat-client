@@ -26,14 +26,15 @@ const EditAgeModal = ({ dependencies }) => {
                             <Text style={{ fontSize: 25, color: 'gray' }}> {'<'} </Text>
                         </TouchableOpacity>
                         <View style={{ borderColor: 'gray', borderRightWidth: 0, borderLeftWidth: 0, width: 50, height: 50, borderWidth: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'white' }}>
-                            <Text style={{ fontSize: 20 }}> {tempAge} </Text>
+                            <Text style={{ fontSize: 20, color: 'gray' }}> {tempAge} </Text>
                         </View>
                         <TouchableOpacity activeOpacity={0.9} onPress={() => { if (tempAge < 100) { setTempAge(parseInt(tempAge) + 1) } }} style={{ borderColor: 'gray', borderTopRightRadius: 8, borderBottomRightRadius: 8, width: 50, height: 50, borderWidth: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'white' }}>
                             <Text style={{ fontSize: 25, color: 'gray' }}> {'>'} </Text>
                         </TouchableOpacity>
                     </View>
 
-                    <TouchableOpacity style={[styles.button, { width: '100%' }]} onPress={() => { dependencies.setAge(tempAge); dependencies.setEditAgeModalVisible(false); }} >
+                    <TouchableOpacity style={[styles.button, { width: '100%', marginTop: 10 }]} onPress={() => { dependencies.setAge(tempAge); dependencies.setEditAgeModalVisible(false); }} >
+                        <View style={{ backgroundColor: 'rgba(255, 255, 255, 0.25)', borderBottomLeftRadius: 6, borderBottomRightRadius: 6, width: '100%', height: '50%', position: 'absolute', top: 0 }}></View>
                         <Text style={{ color: "white", fontWeight: "bold", fontSize: 15 }}> PRONTO </Text>
                     </TouchableOpacity>
                 </View>
@@ -46,10 +47,11 @@ const styles = StyleSheet.create({
 
     button: {
         backgroundColor: '#ff9900',
-        padding: 15,
+        height: 40,
         justifyContent: "center",
         alignItems: "center",
         borderRadius: 5,
+        overflow: 'hidden'
     },
     input: {
         height: 40,

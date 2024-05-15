@@ -63,9 +63,9 @@ const ProfileEditScreen = ({ navigation }) => {
                 animationType="none"
             >
                 <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(0, 0, 0, 0)' }}>
-                    <View style={{ backgroundColor: '#fff', borderRadius: 10, padding: 20, elevation: 5 }}>
-                        <ActivityIndicator size="large" color="#ff9900" />
-                        <Text style={{ marginBottom: 0, marginTop: 10 }}> Aguardando análise do servidor... </Text>
+                    <View style={{ backgroundColor: appConfig.darkTheme ? '#202c33' : '#fff', borderRadius: 10, padding: 20, elevation: 5 }}>
+                        <ActivityIndicator size="large" color={'#ff9900'} />
+                        <Text style={{ marginBottom: 0, marginTop: 10, color: appConfig.darkTheme ? '#c1c1c1' : 'gray' }}> Aguardando análise do servidor... </Text>
                     </View>
                 </View>
             </Modal>
@@ -150,18 +150,6 @@ const ProfileEditScreen = ({ navigation }) => {
         }
     };
 
-    const incrementAge = () => {
-        if (age < 100) {
-            setAge(age + 1);
-        }
-    };
-
-    const decrementAge = () => {
-        if (age > 18) {
-            setAge(age - 1);
-        }
-    };
-
     const selectImageFromGallery = async () => {
         const res = await ImagePicker.launchImageLibrary(
             {
@@ -192,7 +180,8 @@ const ProfileEditScreen = ({ navigation }) => {
                 <View style={[styles.statusbar2, { backgroundColor: appConfig.darkTheme ? '#202c33' : 'ff9900' }]}></View>
             )}
             <View style={[styles.header, { backgroundColor: appConfig.darkTheme ? '#202c33' : '#ff9900' }]}>
-                <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
+                <View style={{ backgroundColor: appConfig.darkTheme ? 'rgba(255, 255, 255, 0.05)' : 'rgba(255, 255, 255, 0.15)', borderBottomLeftRadius: 10, borderBottomRightRadius: 10, width: '100%', height: '78%', position: 'absolute', top: 0 }}></View>
+                <TouchableOpacity style={{ marginLeft: 15 }} onPress={() => navigation.goBack()}>
                     <Image source={require('../../attachments/iconeVoltar.png')} style={styles.backIcon} />
                 </TouchableOpacity>
                 <View style={styles.headerLeft}>
@@ -209,25 +198,170 @@ const ProfileEditScreen = ({ navigation }) => {
 
                 <View style={[styles.container, { backgroundColor: appConfig.darkTheme ? '#111b21' : "white" }]}>
 
-                    <View style={styles.photoContainer}>
-                        <TouchableOpacity activeOpacity={photo ? 1 : 0.8} onPress={() => { !photo && selectImageFromGallery() }} style={styles.profileImageContainer}>
-                            {photo ? (
-                                <Image source={{ uri: photo.assets[0].uri }} style={styles.profileImage} />
-                            ) : (
-                                <Image source={appConfig.darkTheme ? profileImageDarkTheme : profileImage} style={styles.plusIcon} />
-                            )}
-                            {!photo ? (
-                                <View style={styles.plusIconContainer}>
-                                    <Image source={require('../../attachments/icone.png')} style={styles.plusIcon} />
-                                </View>
-                            ) : (
-                                <TouchableOpacity onPress={deleteProfileImage} style={styles.plusIconContainer}>
-                                    <Image source={require('../../attachments/minus.png')} style={styles.plusIcon} />
-                                </TouchableOpacity>
-                            )
-                            }
-                        </TouchableOpacity>
-                    </View>
+                    <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+                        <View style={styles.photoContainer}>
+                            <TouchableOpacity activeOpacity={photo ? 1 : 0.8} onPress={() => { !photo && selectImageFromGallery() }} style={styles.profileImageContainer}>
+                                {photo ? (
+                                    <Image source={{ uri: photo.assets[0].uri }} style={styles.profileImage} />
+                                ) : (
+                                    <Image source={appConfig.darkTheme ? profileImageDarkTheme : profileImage} style={styles.plusIcon} />
+                                )}
+                                {!photo ? (
+                                    <View style={styles.plusIconContainer}>
+                                        <View style={{ backgroundColor: appConfig.darkTheme ? 'rgba(255, 255, 255, 0.25)' : 'rgba(255, 255, 255, 0.20)', borderBottomLeftRadius: 2, borderBottomRightRadius: 2, width: '100%', height: '50%', position: 'absolute', top: 0 }}></View>
+                                        <View style={{ width: '100%', height: '100%', justifyContent: 'center', alignContent: 'center' }}>
+                                            <Image source={require('../../attachments/icone.png')} style={styles.plusIcon} />
+                                        </View>
+                                    </View>
+                                ) : (
+                                    <TouchableOpacity onPress={deleteProfileImage} style={styles.plusIconContainer}>
+                                        <View style={{ backgroundColor: appConfig.darkTheme ? 'rgba(255, 255, 255, 0.25)' : 'rgba(255, 255, 255, 0.20)', borderBottomLeftRadius: 3, borderBottomRightRadius: 3, width: '100%', height: '50%', position: 'absolute', top: 0 }}></View>
+                                        <Image source={require('../../attachments/minus.png')} style={styles.plusIcon} />
+                                    </TouchableOpacity>
+                                )
+                                }
+                            </TouchableOpacity>
+                            <View style={{ position: 'absolute', top: 5, left: 6 }}>
+                                <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 25 }}> 1 </Text>
+                            </View>
+                        </View>
+
+                        <View style={styles.photoContainer}>
+                            <TouchableOpacity activeOpacity={photo ? 1 : 0.8} onPress={() => { !photo && selectImageFromGallery() }} style={styles.profileImageContainer}>
+                                {photo ? (
+                                    <Image source={{ uri: photo.assets[0].uri }} style={styles.profileImage} />
+                                ) : (
+                                    <Image source={appConfig.darkTheme ? profileImageDarkTheme : profileImage} style={styles.plusIcon} />
+                                )}
+                                {!photo ? (
+                                    <View style={styles.plusIconContainer}>
+                                        <View style={{ backgroundColor: appConfig.darkTheme ? 'rgba(255, 255, 255, 0.25)' : 'rgba(255, 255, 255, 0.20)', borderBottomLeftRadius: 2, borderBottomRightRadius: 2, width: '100%', height: '50%', position: 'absolute', top: 0 }}></View>
+                                        <View style={{ width: '100%', height: '100%', justifyContent: 'center', alignContent: 'center' }}>
+                                            <Image source={require('../../attachments/icone.png')} style={styles.plusIcon} />
+                                        </View>
+                                    </View>
+                                ) : (
+                                    <TouchableOpacity onPress={deleteProfileImage} style={styles.plusIconContainer}>
+                                        <View style={{ backgroundColor: appConfig.darkTheme ? 'rgba(255, 255, 255, 0.25)' : 'rgba(255, 255, 255, 0.20)', borderBottomLeftRadius: 3, borderBottomRightRadius: 3, width: '100%', height: '50%', position: 'absolute', top: 0 }}></View>
+                                        <Image source={require('../../attachments/minus.png')} style={styles.plusIcon} />
+                                    </TouchableOpacity>
+                                )
+                                }
+                            </TouchableOpacity>
+                            <View style={{ position: 'absolute', top: 5, left: 6 }}>
+                                <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 25 }}> 2 </Text>
+                            </View>
+                        </View>
+
+                        <View style={styles.photoContainer}>
+                            <TouchableOpacity activeOpacity={photo ? 1 : 0.8} onPress={() => { !photo && selectImageFromGallery() }} style={styles.profileImageContainer}>
+                                {photo ? (
+                                    <Image source={{ uri: photo.assets[0].uri }} style={styles.profileImage} />
+                                ) : (
+                                    <Image source={appConfig.darkTheme ? profileImageDarkTheme : profileImage} style={styles.plusIcon} />
+                                )}
+                                {!photo ? (
+                                    <View style={styles.plusIconContainer}>
+                                        <View style={{ backgroundColor: appConfig.darkTheme ? 'rgba(255, 255, 255, 0.25)' : 'rgba(255, 255, 255, 0.20)', borderBottomLeftRadius: 2, borderBottomRightRadius: 2, width: '100%', height: '50%', position: 'absolute', top: 0 }}></View>
+                                        <View style={{ width: '100%', height: '100%', justifyContent: 'center', alignContent: 'center' }}>
+                                            <Image source={require('../../attachments/icone.png')} style={styles.plusIcon} />
+                                        </View>
+                                    </View>
+                                ) : (
+                                    <TouchableOpacity onPress={deleteProfileImage} style={styles.plusIconContainer}>
+                                        <View style={{ backgroundColor: appConfig.darkTheme ? 'rgba(255, 255, 255, 0.25)' : 'rgba(255, 255, 255, 0.20)', borderBottomLeftRadius: 3, borderBottomRightRadius: 3, width: '100%', height: '50%', position: 'absolute', top: 0 }}></View>
+                                        <Image source={require('../../attachments/minus.png')} style={styles.plusIcon} />
+                                    </TouchableOpacity>
+                                )
+                                }
+                            </TouchableOpacity>
+                            <View style={{ position: 'absolute', top: 5, left: 6 }}>
+                                <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 25 }}> 3 </Text>
+                            </View>
+                        </View>
+
+                        <View style={styles.photoContainer}>
+                            <TouchableOpacity activeOpacity={photo ? 1 : 0.8} onPress={() => { !photo && selectImageFromGallery() }} style={styles.profileImageContainer}>
+                                {photo ? (
+                                    <Image source={{ uri: photo.assets[0].uri }} style={styles.profileImage} />
+                                ) : (
+                                    <Image source={appConfig.darkTheme ? profileImageDarkTheme : profileImage} style={styles.plusIcon} />
+                                )}
+                                {!photo ? (
+                                    <View style={styles.plusIconContainer}>
+                                        <View style={{ backgroundColor: appConfig.darkTheme ? 'rgba(255, 255, 255, 0.25)' : 'rgba(255, 255, 255, 0.20)', borderBottomLeftRadius: 2, borderBottomRightRadius: 2, width: '100%', height: '50%', position: 'absolute', top: 0 }}></View>
+                                        <View style={{ width: '100%', height: '100%', justifyContent: 'center', alignContent: 'center' }}>
+                                            <Image source={require('../../attachments/icone.png')} style={styles.plusIcon} />
+                                        </View>
+                                    </View>
+                                ) : (
+                                    <TouchableOpacity onPress={deleteProfileImage} style={styles.plusIconContainer}>
+                                        <View style={{ backgroundColor: appConfig.darkTheme ? 'rgba(255, 255, 255, 0.25)' : 'rgba(255, 255, 255, 0.20)', borderBottomLeftRadius: 3, borderBottomRightRadius: 3, width: '100%', height: '50%', position: 'absolute', top: 0 }}></View>
+                                        <Image source={require('../../attachments/minus.png')} style={styles.plusIcon} />
+                                    </TouchableOpacity>
+                                )
+                                }
+                            </TouchableOpacity>
+                            <View style={{ position: 'absolute', top: 5, left: 6 }}>
+                                <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 25 }}> 4 </Text>
+                            </View>
+                        </View>
+
+                        <View style={styles.photoContainer}>
+                            <TouchableOpacity activeOpacity={photo ? 1 : 0.8} onPress={() => { !photo && selectImageFromGallery() }} style={styles.profileImageContainer}>
+                                {photo ? (
+                                    <Image source={{ uri: photo.assets[0].uri }} style={styles.profileImage} />
+                                ) : (
+                                    <Image source={appConfig.darkTheme ? profileImageDarkTheme : profileImage} style={styles.plusIcon} />
+                                )}
+                                {!photo ? (
+                                    <View style={styles.plusIconContainer}>
+                                        <View style={{ backgroundColor: appConfig.darkTheme ? 'rgba(255, 255, 255, 0.25)' : 'rgba(255, 255, 255, 0.20)', borderBottomLeftRadius: 2, borderBottomRightRadius: 2, width: '100%', height: '50%', position: 'absolute', top: 0 }}></View>
+                                        <View style={{ width: '100%', height: '100%', justifyContent: 'center', alignContent: 'center' }}>
+                                            <Image source={require('../../attachments/icone.png')} style={styles.plusIcon} />
+                                        </View>
+                                    </View>
+                                ) : (
+                                    <TouchableOpacity onPress={deleteProfileImage} style={styles.plusIconContainer}>
+                                        <View style={{ backgroundColor: appConfig.darkTheme ? 'rgba(255, 255, 255, 0.25)' : 'rgba(255, 255, 255, 0.20)', borderBottomLeftRadius: 3, borderBottomRightRadius: 3, width: '100%', height: '50%', position: 'absolute', top: 0 }}></View>
+                                        <Image source={require('../../attachments/minus.png')} style={styles.plusIcon} />
+                                    </TouchableOpacity>
+                                )
+                                }
+                            </TouchableOpacity>
+                            <View style={{ position: 'absolute', top: 5, left: 6 }}>
+                                <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 25 }}> 5 </Text>
+                            </View>
+                        </View>
+
+                        <View style={styles.photoContainer}>
+                            <TouchableOpacity activeOpacity={photo ? 1 : 0.8} onPress={() => { !photo && selectImageFromGallery() }} style={styles.profileImageContainer}>
+                                {photo ? (
+                                    <Image source={{ uri: photo.assets[0].uri }} style={styles.profileImage} />
+                                ) : (
+                                    <Image source={appConfig.darkTheme ? profileImageDarkTheme : profileImage} style={styles.plusIcon} />
+                                )}
+                                {!photo ? (
+                                    <View style={styles.plusIconContainer}>
+                                        <View style={{ backgroundColor: appConfig.darkTheme ? 'rgba(255, 255, 255, 0.25)' : 'rgba(255, 255, 255, 0.20)', borderBottomLeftRadius: 2, borderBottomRightRadius: 2, width: '100%', height: '50%', position: 'absolute', top: 0 }}></View>
+                                        <View style={{ width: '100%', height: '100%', justifyContent: 'center', alignContent: 'center' }}>
+                                            <Image source={require('../../attachments/icone.png')} style={styles.plusIcon} />
+                                        </View>
+                                    </View>
+                                ) : (
+                                    <TouchableOpacity onPress={deleteProfileImage} style={styles.plusIconContainer}>
+                                        <View style={{ backgroundColor: appConfig.darkTheme ? 'rgba(255, 255, 255, 0.25)' : 'rgba(255, 255, 255, 0.20)', borderBottomLeftRadius: 6, borderBottomRightRadius: 6, width: '100%', height: '50%', position: 'absolute', top: 0 }}></View>
+                                        <Image source={require('../../attachments/minus.png')} style={styles.plusIcon} />
+                                    </TouchableOpacity>
+                                )
+                                }
+                            </TouchableOpacity>
+                            <View style={{ position: 'absolute', top: 5, left: 6 }}>
+                                <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 25 }}> 6 </Text>
+                            </View>
+                        </View>
+
+                    </ScrollView>
 
                     <Text style={[styles.searchTitle, { color: appConfig.darkTheme ? '#c1c1c1' : '#606060' }]}>INFORMAÇÕES DE PERFIL</Text>
 
@@ -313,6 +447,7 @@ const ProfileEditScreen = ({ navigation }) => {
                 </View>
             </ScrollView>
             <TouchableOpacity activeOpacity={0.7} style={styles.saveProfileButton} onPress={() => saveProfile(userProfile)}>
+                <View style={{ backgroundColor: appConfig.darkTheme ? 'rgba(255, 255, 255, 0.25)' : 'rgba(255, 255, 255, 0.20)', borderBottomLeftRadius: 4, borderBottomRightRadius: 4, width: '100%', height: '50%', position: 'absolute', top: 0 }}></View>
                 <Image source={saveProfileImage} style={styles.saveProfileImageIcon} />
             </TouchableOpacity>
             <LoadingModal />
@@ -325,12 +460,12 @@ const styles = StyleSheet.create({
         height: 24,
         width: "100%",
         backgroundColor: '#ff9900',
-    },
+    },1
     rightHeaderContainer: {
         width: "30%",
         justifyContent: "center",
         alignItems: "flex-end",
-        borderWidth: 0,
+        marginLeft: -30
     },
     smallButton: {
         padding: 10,
@@ -356,10 +491,9 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'flex-start',
-        paddingHorizontal: 20,
         paddingVertical: 10,
         width: '100%',
-        height: "8%",
+        height: 55,
         backgroundColor: '#ff9900',
         elevation: 5,
     },
@@ -411,7 +545,7 @@ const styles = StyleSheet.create({
     },
     photoContainer: {
         alignItems: 'center',
-        margin: 20,
+        margin: 10,
     },
     photo: {
         width: 200,
@@ -473,8 +607,8 @@ const styles = StyleSheet.create({
     },
     profileImageContainer: {
         borderColor: "gray",
-        width: 200,
-        height: 200,
+        width: 170,
+        height: 170,
         borderRadius: 10,
         overflow: 'hidden',
         elevation: 2,
@@ -490,21 +624,25 @@ const styles = StyleSheet.create({
         borderColor: "gray",
         position: "absolute",
         backgroundColor: '#ff9900',
-        top: 175,
-        left: 175,
-        padding: 3,
+        top: 142,
+        left: 142,
         borderRadius: 5,
+        justifyContent: 'center',
+        alignContent: 'center',
+        overflow: 'hidden',
     },
     saveProfileButton: {
         backgroundColor: '#ff9900',
         width: 55,
         height: 55,
         borderRadius: 10,
-        padding: 5,
         position: "absolute",
         top: "85%",
         left: "78%",
         elevation: 2,
+        justifyContent: 'center',
+        alignContent: 'center',
+        overflow: 'hidden'
     },
     saveProfileImageIcon: {
         width: "100%",

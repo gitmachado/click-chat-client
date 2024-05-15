@@ -24,37 +24,38 @@ const EditAgeModal = ({ dependencies }) => {
 
                     <View style={{ flexDirection: 'row', width: '100%', justifyContent: 'center', borderWidth: 0, flexWrap: 'wrap' }}>
                         <View style={{ width: '50%', justifyContent: 'center', alignItems: 'center' }}>
-                            <Text style={{ color: appConfig.darkTheme ? 'white' : '#505050' }}>Min</Text>
+                            <Text style={{ color: appConfig.darkTheme ? 'white' : '#505050' }}>Mín</Text>
                         </View>
                         <View style={{ width: '50%', justifyContent: 'center', alignItems: 'center' }}>
-                            <Text style={{ color: appConfig.darkTheme ? 'white' : '#505050' }}>Max</Text>
+                            <Text style={{ color: appConfig.darkTheme ? 'white' : '#505050' }}>Máx</Text>
                         </View>
                         <View style={{ flexDirection: 'row', justifyContent: 'center', marginBottom: 5, width: '50%', borderWidth: 0 }}>
                             <TouchableOpacity activeOpacity={0.9} onPress={() => { if (tempMinAge > 18) { setTempMinAge(parseInt(tempMinAge) - 1) } }} style={{ borderColor: 'gray', borderTopLeftRadius: 8, borderBottomLeftRadius: 8, width: 40, height: 40, borderWidth: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'white' }}>
-                                <Text style={{ fontSize: 25, color: 'gray' }}> {'<'} </Text>
+                                <Text style={{ fontSize: 23, color: 'gray' }}> {'<'} </Text>
                             </TouchableOpacity>
                             <View style={{ borderColor: 'gray', borderRightWidth: 0, borderLeftWidth: 0, width: 40, height: 40, borderWidth: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'white' }}>
-                                <Text style={{ fontSize: 20 }}> {tempMinAge} </Text>
+                                <Text style={{ fontSize: 18, color: 'gray' }}> {tempMinAge} </Text>
                             </View>
                             <TouchableOpacity activeOpacity={0.9} onPress={() => { if (tempMinAge < 100 && tempMinAge < tempMaxAge) { setTempMinAge(parseInt(tempMinAge) + 1) } }} style={{ borderColor: 'gray', borderTopRightRadius: 8, borderBottomRightRadius: 8, width: 40, height: 40, borderWidth: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'white' }}>
-                                <Text style={{ fontSize: 25, color: 'gray' }}> {'>'} </Text>
+                                <Text style={{ fontSize: 23, color: 'gray' }}> {'>'} </Text>
                             </TouchableOpacity>
                         </View>
 
                         <View style={{ flexDirection: 'row', justifyContent: 'center', marginBottom: 5, width: '50%' }}>
                             <TouchableOpacity activeOpacity={0.9} onPress={() => { if (tempMaxAge > 18 && tempMaxAge > tempMinAge) { setTempMaxAge(parseInt(tempMaxAge) - 1) } }} style={{ borderColor: 'gray', borderTopLeftRadius: 8, borderBottomLeftRadius: 8, width: 40, height: 40, borderWidth: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'white' }}>
-                                <Text style={{ fontSize: 25, color: 'gray' }}> {'<'} </Text>
+                                <Text style={{ fontSize: 23, color: 'gray' }}> {'<'} </Text>
                             </TouchableOpacity>
                             <View style={{ borderColor: 'gray', borderRightWidth: 0, borderLeftWidth: 0, width: 40, height: 40, borderWidth: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'white' }}>
-                                <Text style={{ fontSize: 20 }}> {tempMaxAge} </Text>
+                                <Text style={{ fontSize: 18, color: 'gray' }}> {tempMaxAge} </Text>
                             </View>
                             <TouchableOpacity activeOpacity={0.9} onPress={() => { if (tempMaxAge < 100) { setTempMaxAge(parseInt(tempMaxAge) + 1) } }} style={{ borderColor: 'gray', borderTopRightRadius: 8, borderBottomRightRadius: 8, width: 40, height: 40, borderWidth: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'white' }}>
-                                <Text style={{ fontSize: 25, color: 'gray' }}> {'>'} </Text>
+                                <Text style={{ fontSize: 23, color: 'gray' }}> {'>'} </Text>
                             </TouchableOpacity>
                         </View>
                     </View>
 
-                    <TouchableOpacity style={[styles.button, { width: '100%' }]} onPress={() => { dependencies.setSearchMinAge(tempMinAge); dependencies.setSearchMaxAge(tempMaxAge); dependencies.setEditSearchAgeModalVisible(false); }} >
+                    <TouchableOpacity style={[styles.button, { width: '100%', marginTop: 10 }]} onPress={() => { dependencies.setSearchMinAge(tempMinAge); dependencies.setSearchMaxAge(tempMaxAge); dependencies.setEditSearchAgeModalVisible(false); }} >
+                        <View style={{ backgroundColor: 'rgba(255, 255, 255, 0.25)', borderBottomLeftRadius: 6, borderBottomRightRadius: 6, width: '100%', height: '50%', position: 'absolute', top: 0 }}></View>
                         <Text style={{ color: "white", fontWeight: "bold", fontSize: 15 }}> PRONTO </Text>
                     </TouchableOpacity>
                 </View>
@@ -67,10 +68,11 @@ const styles = StyleSheet.create({
 
     button: {
         backgroundColor: '#ff9900',
-        padding: 15,
+        height: 40,
         justifyContent: "center",
         alignItems: "center",
         borderRadius: 5,
+        overflow: 'hidden',
     },
     input: {
         height: 40,

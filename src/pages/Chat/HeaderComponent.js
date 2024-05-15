@@ -144,6 +144,7 @@ const HeaderComponent = ({ navigation, deleteConversationRef }) => {
 
     return (
         <View style={[styles.header, { backgroundColor: appConfig.darkTheme ? '#202c33' : '#ff9900' }]}>
+            <View style={{ backgroundColor: appConfig.darkTheme ? 'rgba(255, 255, 255, 0.05)' : 'rgba(255, 255, 255, 0.15)', borderBottomLeftRadius: 6, borderBottomRightRadius: 6, width: '100%', height: '50%', position: 'absolute', top: 0 }}></View>
             <TouchableOpacity activeOpacity={0.5} style={styles.backButton} onPress={() => navigation.navigate('Home')}>
                 <Image source={require('../../attachments/iconeVoltar.png')} style={styles.backIcon} />
             </TouchableOpacity>
@@ -297,15 +298,15 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        paddingHorizontal: 10,
         backgroundColor: '#ff9900', // Laranja escuro
-        height: 65,
+        height: 55,
         elevation: 3,
         zIndex: 10,
         width: '100%',
     },
     backButton: {
-        padding: 5,
+        marginLeft: 15,
+        marginRight: 5
     },
     backIcon: {
         width: 20,
@@ -330,7 +331,8 @@ const styles = StyleSheet.create({
         width: "15%",
         height: '100%',
         borderWidth: 0,
-        marginBottom: 2
+        marginBottom: 2,
+        marginLeft: -16
     },
     headerTextContainer: {
         flexDirection: 'column',
@@ -339,8 +341,8 @@ const styles = StyleSheet.create({
         marginTop: -4,
     },
     profileImage: {
-        width: 32,
-        height: 32,
+        width: 30,
+        height: 30,
         borderRadius: 20,
     },
     profileImageContainer: {
@@ -441,8 +443,8 @@ const styles = StyleSheet.create({
         width: "100%"
     },
     conversationImageContainer: {
-        width: 44,
-        height: 44,
+        width: 42,
+        height: 42,
         elevation: 2,
         marginRight: 10,
         borderRadius: 100,

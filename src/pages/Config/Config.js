@@ -35,7 +35,8 @@ const ConfigScreen = ({ navigation }) => {
             <View style={[styles.statusbar, { backgroundColor: appConfig.darkTheme ? '#202c33' : '#ff9900' }]}></View>
 
             <View style={[styles.header, { backgroundColor: appConfig.darkTheme ? '#202c33' : '#ff9900' }]}>
-                <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
+                <View style={{ backgroundColor: appConfig.darkTheme ? 'rgba(255, 255, 255, 0.05)' : 'rgba(255, 255, 255, 0.15)', borderBottomLeftRadius: 4, borderBottomRightRadius: 4, width: '100%', height: '78%', position: 'absolute', top: 0 }}></View>
+                <TouchableOpacity style={{ marginLeft: 15 }} onPress={() => navigation.goBack()}>
                     <Image source={require('../../attachments/iconeVoltar.png')} style={styles.backIcon} />
                 </TouchableOpacity>
                 <View style={styles.headerLeft}>
@@ -165,7 +166,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'flex-start',
-        paddingHorizontal: 20,
         paddingVertical: 10,
         width: '100%',
         height: "8%",
