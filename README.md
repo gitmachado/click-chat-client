@@ -1,6 +1,6 @@
 # 📱 ClickChat - Modern Android Messaging Application
 
-![Demo Image](clickchat-demo.png)
+![Demo Image](clickchat-demo-banner.png)
 
 ## Layers: [ client | [server](https://github.com/gitmachado/click-chat-server) | [admin](https://github.com/gitmachado/admin-app--click-chat) ]
 
