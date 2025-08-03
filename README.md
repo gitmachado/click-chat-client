@@ -1,90 +1,178 @@
-# 📱 ClickChat - Aplicativo de Mensagens Moderno
+# 📱 ClickChat - Modern Android Messaging App
 
-<p align="center">
-  <img src="https://link-para-o-banner.com/banner.png" alt="ClickChat Banner" width="100%" />
-</p>
+![Demo Image](clickchat-demo.png)
 
 ![License](https://img.shields.io/github/license/seu-usuario/clickchat)
 ![Stars](https://img.shields.io/github/stars/seu-usuario/clickchat?style=social)
 ![Platform](https://img.shields.io/badge/platform-Android%20%7C%20iOS-blue)
 
-> 🧪 Projeto em desenvolvimento ativo.
+> 🧪 Project under development.
 
-ClickChat é um aplicativo de mensagens em tempo real desenvolvido com React Native. Ele oferece uma interface moderna, recursos robustos e suporte a múltiplas plataformas.
-
----
-
-## 📚 Sumário
-
-- [🚀 Visão Geral](#-visão-geral)
-- [✨ Funcionalidades](#-funcionalidades)
-- [🛠 Tecnologias Utilizadas](#-tecnologias-utilizadas)
-- [📱 Pré-requisitos](#-pré-requisitos)
-- [🚀 Primeiros Passos](#-primeiros-passos)
-- [⚙️ Configuração do Ambiente](#️-configuração-do-ambiente)
-- [🔑 Arquivo .env](#-arquivo-env)
-- [📦 Dependências](#-dependências)
-- [🤝 Contribuindo](#-contribuindo)
-- [📝 Licença](#-licença)
-- [👥 Autores](#-autores)
-- [🙏 Agradecimentos](#-agradecimentos)
+ClickChat is a real-time Android messaging application built with React Native. It features a modern interface, robust capabilities, and cross-platform support.
 
 ---
 
-## 🚀 Visão Geral
+## 📚 Table of Contents
 
-ClickChat é uma aplicação de mensagens moderna construída com React Native, oferecendo funcionalidades de comunicação em tempo real, autenticação via Google e uma interface elegante.
-
----
-
-## ✨ Funcionalidades
-
-- ✅ Mensagens em tempo real via WebSocket
-- ✅ Integração com login do Google
-- ✅ Bloqueio de usuários
-- ✅ Suporte a temas claro e escuro
-- ✅ Notificações push
-- ✅ Compartilhamento de imagens
-- ✅ Seletor de emojis
-- ✅ Personalização de perfil
+- [🚀 Overview](#-overview)
+- [✨ Features](#-features)
+- [🛠 Tech Stack](#-tech-stack)
+- [📱 Prerequisites](#-prerequisites)
+- [🚀 Getting Started](#-getting-started)
 
 ---
 
-## 🛠 Tecnologias Utilizadas
+## 🚀 Overview
 
-- **React Native 0.73.4**
-- **Firebase Authentication**
-- **Socket.IO** (cliente para comunicação em tempo real)
-- **React Navigation**
-- **Expo Modules**
-- **Google Mobile Ads (AdMob)**
+ClickChat is a modern messaging app built with React Native, offering real-time communication, Google authentication, and a clean, intuitive user experience.
 
 ---
 
-## 📱 Pré-requisitos
+## ✨ Features
 
-Antes de iniciar, você vai precisar ter instalado:
-
-- [Node.js](https://nodejs.org/) versão 18 ou superior
-- [npm](https://www.npmjs.com/) ou [yarn](https://yarnpkg.com/)
-- React Native CLI
-- Android Studio (para desenvolvimento Android)
-- Xcode (para desenvolvimento iOS - macOS somente)
+- ✅ Real-time messaging using WebSocket  
+- ✅ Google Sign-In integration  
+- ✅ User blocking functionality  
+- ✅ Light and Dark theme support  
+- ✅ Push notifications  
+- ✅ Image sharing  
+- ✅ Audio sharing  
+- ✅ Emoji picker  
+- ✅ Profile customization  
+- ✅ Favorite contacts feature  
+- ✅ Screen to discovery new contacts  
 
 ---
 
-## 🚀 Primeiros Passos
+## 🛠 Tech Stack
 
-Clone o repositório e instale as dependências:
+### 🧩 Core
+- **React Native v0.73.4**  
+  Main framework for cross-platform mobile development
+
+---
+
+### 🗂️ State Management & Storage
+- **Redux**  
+  Global state management with pure functions  
+- **Context API (React Built-in)**  
+  Global state and side-effect handling (e.g., cloud login logic)  
+- **@react-native-async-storage/async-storage v1.22.2**  
+  Persistent local data storage
+
+---
+
+### 🔐 Authentication & Cloud Services
+- **@react-native-firebase/app v18.9.0**  
+  Firebase core for initial setup  
+- **@react-native-firebase/auth v18.9.0**  
+  User authentication and session management  
+- **@react-native-firebase/messaging v18.9.0**  
+  Push notifications and real-time messaging  
+- **@react-native-google-signin/google-signin v11.0.0**  
+  Google Sign-In authentication provider
+
+---
+
+### 🔌 Real-Time Communication
+- **Socket.IO**  
+  Real-time bi-directional client-server communication
+
+---
+
+### 🔀 Navigation
+- **@react-navigation/stack v6.3.21**  
+  Stack-based navigation between screens
+
+---
+
+### 🎨 UI Components & Styling
+- **react-native-element-dropdown v2.10.4**  
+  Custom dropdown component  
+- **react-native-emoji-selector v0.2.0**  
+  Emoji picker component  
+- **react-native-animatable v1.4.0**  
+  Declarative animations for React Native
+
+---
+
+### 🖼 Media & Images
+- **react-native-image-picker v7.1.2**  
+  Gallery/camera image selection  
+- **@bam.tech/react-native-image-resizer v3.0.9**  
+  Image resizing utilities
+
+---
+
+### 🔊 Media Player
+- **react-native-track-player v4.1.1**  
+  Audio streaming and playback (including HTTP WebRadio sync across clients)
+
+---
+
+### 🧰 Utilities
+- **date-fns v3.3.1**  
+  Modern date utility functions  
+- **react-native-get-random-values v1.10.0**  
+  Secure random value generation
+
+---
+
+### 📲 Expo Modules
+- **expo-modules-core v1.11.13**  
+  Core Expo modules integration  
+- **expo-navigation-bar v2.8.1**  
+  Navigation bar customization  
+- **expo-status-bar v1.11.1**  
+  Status bar control and configuration
+
+---
+
+### 💰 Monetization
+- **react-native-google-mobile-ads v13.0.2**  
+  Google AdMob integration for monetization
+
+---
+
+### 🖐 UI Enhancement & Gesture Handling
+- **react-native-reanimated v3.7.1**  
+  High-performance animations  
+- **react-native-gesture-handler v2.15.0**  
+  Gesture and touch handling  
+- **react-native-safe-area-context v4.9.0**  
+  Handling of safe area insets on various devices
+
+---
+
+## 📱 Prerequisites
+
+Before getting started, ensure you have the following tools and configurations:
+
+- **React Native CLI**  
+- **[Node.js](https://nodejs.org/)** (v18 or higher) – Required to run Metro Bundler and the ClickChat server  
+- **[npm](https://www.npmjs.com/)** or **[yarn](https://yarnpkg.com/)** – To install project dependencies  
+- **Android SDK** – Properly set in system environment variables (`ANDROID_HOME` and `PATH`)  
+- **Android emulator** (e.g. Genymotion) **or** a real device  
+  - On real devices, enable:  
+    - **Developer Options** → **USB debugging**
+
+---
+
+## 🚀 Getting Started
+
+Clone the repository and install the dependencies:
 
 ```bash
-git clone https://github.com/seu-usuario/clickchat.git
-cd clickchat
+# Clone the repository
+git clone https://github.com/gitmachado/click-chat-client.git
 
-# Instalar dependências
+# Navigate to the project folder
+cd click-chat-client
+
+# Install dependencies
 npm install
-# ou
+# or
 yarn install
 
-# Iniciar Metro Bundler
+# Start the Metro Bundler
 npx react-native start
