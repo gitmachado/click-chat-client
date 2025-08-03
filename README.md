@@ -1,10 +1,14 @@
-# 📱 ClickChat - Modern Android Messaging App
+# 📱 ClickChat - Modern Android Messaging Application (client)
 
 ![Demo Image](clickchat-demo.png)
 
-![License](https://img.shields.io/github/license/seu-usuario/clickchat)
-![Stars](https://img.shields.io/github/stars/seu-usuario/clickchat?style=social)
-![Platform](https://img.shields.io/badge/platform-Android%20%7C%20iOS-blue)
+## Layers: [ client | [server](https://github.com/gitmachado/click-chat-server) | [admin](https://github.com/gitmachado/admin-app--click-chat) ]
+
+![License](https://img.shields.io/github/license/gitmachado/click-chat-client)
+![Stars](https://img.shields.io/github/stars/gitmachado/click-chat-client?style=social)
+![Platform](https://img.shields.io/badge/platform-Android-green)
+![React Native](https://img.shields.io/badge/frontend-React%20Native-61dafb?logo=react)
+![Node.js](https://img.shields.io/badge/backend-Node.js-339933?logo=node.js)
 
 > 🧪 Project under development.
 
@@ -12,135 +16,12 @@ ClickChat is a real-time Android messaging application built with React Native. 
 
 ---
 
-## 📚 Table of Contents
+# 📚 Table of Contents
 
-- [🚀 Overview](#-overview)
-- [✨ Features](#-features)
-- [🛠 Tech Stack](#-tech-stack)
 - [📱 Prerequisites](#-prerequisites)
 - [🚀 Getting Started](#-getting-started)
-
----
-
-## 🚀 Overview
-
-ClickChat is a modern messaging app built with React Native, offering real-time communication, Google authentication, and a clean, intuitive user experience.
-
----
-
-## ✨ Features
-
-- ✅ Real-time messaging using WebSocket  
-- ✅ Google Sign-In integration  
-- ✅ User blocking functionality  
-- ✅ Light and Dark theme support  
-- ✅ Push notifications  
-- ✅ Image sharing  
-- ✅ Audio sharing  
-- ✅ Emoji picker  
-- ✅ Profile customization  
-- ✅ Favorite contacts feature  
-- ✅ Screen to discovery new contacts  
-
----
-
-## 🛠 Tech Stack
-
-### 🧩 Core
-- **React Native v0.73.4**  
-  Main framework for cross-platform mobile development
-
----
-
-### 🗂️ State Management & Storage
-- **Redux**  
-  Global state management with pure functions  
-- **Context API (React Built-in)**  
-  Global state and side-effect handling (e.g., cloud login logic)  
-- **@react-native-async-storage/async-storage v1.22.2**  
-  Persistent local data storage
-
----
-
-### 🔐 Authentication & Cloud Services
-- **@react-native-firebase/app v18.9.0**  
-  Firebase core for initial setup  
-- **@react-native-firebase/auth v18.9.0**  
-  User authentication and session management  
-- **@react-native-firebase/messaging v18.9.0**  
-  Push notifications and real-time messaging  
-- **@react-native-google-signin/google-signin v11.0.0**  
-  Google Sign-In authentication provider
-
----
-
-### 🔌 Real-Time Communication
-- **Socket.IO**  
-  Real-time bi-directional client-server communication
-
----
-
-### 🔀 Navigation
-- **@react-navigation/stack v6.3.21**  
-  Stack-based navigation between screens
-
----
-
-### 🎨 UI Components & Styling
-- **react-native-element-dropdown v2.10.4**  
-  Custom dropdown component  
-- **react-native-emoji-selector v0.2.0**  
-  Emoji picker component  
-- **react-native-animatable v1.4.0**  
-  Declarative animations for React Native
-
----
-
-### 🖼 Media & Images
-- **react-native-image-picker v7.1.2**  
-  Gallery/camera image selection  
-- **@bam.tech/react-native-image-resizer v3.0.9**  
-  Image resizing utilities
-
----
-
-### 🔊 Media Player
-- **react-native-track-player v4.1.1**  
-  Audio streaming and playback (including HTTP WebRadio sync across clients)
-
----
-
-### 🧰 Utilities
-- **date-fns v3.3.1**  
-  Modern date utility functions  
-- **react-native-get-random-values v1.10.0**  
-  Secure random value generation
-
----
-
-### 📲 Expo Modules
-- **expo-modules-core v1.11.13**  
-  Core Expo modules integration  
-- **expo-navigation-bar v2.8.1**  
-  Navigation bar customization  
-- **expo-status-bar v1.11.1**  
-  Status bar control and configuration
-
----
-
-### 💰 Monetization
-- **react-native-google-mobile-ads v13.0.2**  
-  Google AdMob integration for monetization
-
----
-
-### 🖐 UI Enhancement & Gesture Handling
-- **react-native-reanimated v3.7.1**  
-  High-performance animations  
-- **react-native-gesture-handler v2.15.0**  
-  Gesture and touch handling  
-- **react-native-safe-area-context v4.9.0**  
-  Handling of safe area insets on various devices
+- [✨ Features](#-features)
+- [🛠 Tech Stack](#-tech-stack)
 
 ---
 
@@ -149,18 +30,18 @@ ClickChat is a modern messaging app built with React Native, offering real-time 
 Before getting started, ensure you have the following tools and configurations:
 
 - **React Native CLI**  
-- **[Node.js](https://nodejs.org/)** (v18 or higher) – Required to run Metro Bundler and the ClickChat server  
+- **[Node.js](https://nodejs.org/)** (v18 or higher) – Required to run Metro Bundler and ClickChat-Server  
 - **[npm](https://www.npmjs.com/)** or **[yarn](https://yarnpkg.com/)** – To install project dependencies  
-- **Android SDK** – Properly set in system environment variables (`ANDROID_HOME` and `PATH`)  
-- **Android emulator** (e.g. Genymotion) **or** a real device  
-  - On real devices, enable:  
-    - **Developer Options** → **USB debugging**
+- **Android SDK && JDK 17 (to run Gradle)** – Properly set in system environment variables (`ANDROID_HOME` and `JAVA_HOME`)  
+- **Android emulator** (e.g. Genymotion) **or** a real device with USB connection
+  - On real devices, install USB driver for your mobile device on PC and enable the following option on mobile device:  
+    - **Developer Options** → **USB debugging (enabled)**
 
 ---
 
-## 🚀 Getting Started
+# 🚀 Getting Started
 
-Clone the repository and install the dependencies:
+Clone the repository, install dependencies and run:
 
 ```bash
 # Clone the repository
@@ -176,3 +57,117 @@ yarn install
 
 # Start the Metro Bundler
 npx react-native start
+```
+
+# ✨ Features
+
+- ✅ Real-time messaging with WebSocket  
+- ✅ Cloud login with Google  
+- ✅ Effective user blocking functionality
+- ✅ Light and Dark theme support  
+- ✅ Cloud push notifications with Firebase 
+- ✅ Fast image and voice message sharing 
+- ✅ Emoji picker  
+- ✅ Full profile customization  
+- ✅ Favorite contacts feature  
+- and more...
+
+---
+
+# 🛠 Tech Stack
+
+### 🧩 Core
+- **React Native v0.73.4**  
+  Main framework for easy cross-platform mobile development
+
+---
+
+### 🗂️ State Management & Pesistent Storage
+- **Redux**  
+  Global state management with pure functions  
+- **Context API (React Built-in)**  
+  Global state and side-effect handling (e.g., cloud login)  
+- **@react-native-async-storage/async-storage v1.22.2**  
+  Persistent local data storage for user configurations and caching
+
+---
+
+### 🔐 Authentication & Cloud Services
+- **@react-native-firebase/app v18.9.0**  
+  Firebase core for initial setup  
+- **@react-native-firebase/auth v18.9.0**  
+  User authentication and session management  
+- **@react-native-firebase/messaging v18.9.0**  
+  Cloud push notifications 
+- **@react-native-google-signin/google-signin v11.0.0**  
+  Google Sign-In authentication provider
+
+---
+
+### 🔌 Communication with ClickChat-Server
+- **Socket.IO**  
+  Real-time bi-directional client-server communication
+
+---
+
+### 🔀 Navigation
+- **@react-navigation/stack v6.3.21**  
+  Stack-based navigation between screens
+
+---
+
+### 🔊 Media Player
+- **react-native-track-player v4.1.1**  
+  Audio streaming and playback for voice messages and real-time internet radio processing, using a synchronized HTTP output stream for all connected clients. See the [webradio-nodejs](https://github.com/gitmachado/webradio-nodejs) for more details.
+
+---
+
+### 💰 Monetization
+- **react-native-google-mobile-ads v13.0.2**  
+  Google AdMob integration for monetization
+
+---
+
+### 🖐 UI Enhancement & Gesture Handling
+- **react-native-reanimated v3.7.1**  
+  High-performance animations  
+- **react-native-gesture-handler v2.15.0**  
+  Gesture and touch handling  
+
+---
+
+# 🔮 Future Features
+
+### 🔐 End-to-End Encryption with Public/Private Key
+
+Implement secure message encryption using public/private key pairs. Each user will generate a key pair **locally on their device**. The **public key** will be sent to the server and made available to other users for encrypting messages to that user. The **private key will never leave the user's device**, remaining stored securely and used only to decrypt received messages.
+
+- **Approach**: Asymmetric encryption for message payloads before sending via WebSocket.  
+  Users encrypt messages using the recipient’s public key. Only the recipient can decrypt them using their private key.
+
+- **Possible Libraries**:
+  - [`tweetnacl`](https://github.com/dchest/tweetnacl-js) – Lightweight and secure encryption
+  - [`openpgp`](https://github.com/openpgpjs/openpgpjs) – Full OpenPGP-compatible implementation
+
+- **Where**:
+  - Key generation and private key storage happen securely on the client (React Native).
+  - Public key is uploaded to the server for distribution to contacts.
+  - Message encryption/decryption is handled entirely on-device.
+
+---
+
+### 📞 Real-Time Voice Calls via Streaming
+
+Enable users to make one-on-one voice calls using WebRTC or low-latency audio streaming via socket-based channels.
+
+- **Approach**: Peer-to-peer audio streaming using media devices (mic), WebRTC signaling through the existing WebSocket server or an SFU (Selective Forwarding Unit).
+- **Possible Libraries**:
+  - [`react-native-webrtc`](https://github.com/react-native-webrtc/react-native-webrtc)
+  - [`mediasoup`](https://mediasoup.org/) (for group call support via SFU)
+- **Where**: Client handles media capture and streaming; server helps with signaling and relay.
+
+---
+
+### 🌍 Multi-language Support & Language-Based User Search
+
+Allow users to choose their language preference, and make it possible to filter or match users based on language.
