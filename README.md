@@ -4,11 +4,11 @@
 
 ## Layers: [ client | [server](https://github.com/gitmachado/click-chat-server) | [admin](https://github.com/gitmachado/admin-app--click-chat) ]
 
-![License](https://img.shields.io/github/license/gitmachado/click-chat-client)
-![Stars](https://img.shields.io/github/stars/gitmachado/click-chat-client?style=social)
 ![Platform](https://img.shields.io/badge/platform-Android-green)
 ![React Native](https://img.shields.io/badge/frontend-React%20Native-61dafb?logo=react)
 ![Node.js](https://img.shields.io/badge/backend-Node.js-339933?logo=node.js)
+![Redux](https://img.shields.io/badge/state-Redux-764ABC?logo=redux&logoColor=white)
+![Google](https://img.shields.io/badge/auth-Google-4285F4?logo=google&logoColor=white)
 
 > 🧪 Project under development.
 
