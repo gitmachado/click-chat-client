@@ -1,4 +1,4 @@
-# 📱 ClickChat - Modern Android Messaging Application (client)
+# 📱 ClickChat - Modern Android Messaging Application
 
 ![Demo Image](clickchat-demo.png)
 
